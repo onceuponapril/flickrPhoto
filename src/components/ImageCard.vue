@@ -1,5 +1,7 @@
 <template>
   <li class="image-card">
+      <router-link class="image-card__link" :to="{name: 'imageDetail', params: {id: image.id} }">
+
     <img 
       class="image-card__image"
       :class="{ skeleton: loading}" 
@@ -13,6 +15,7 @@
         <p class="image-views" :class="{skeleton: loading}">Views: {{ viewCount }}</p>
       </section>
     </div>
+    </router-link>
   </li>
 </template>
 
@@ -59,6 +62,10 @@ export default {
 </script>
 
 <style lang="scss">
+.image-card__link {
+  text-decoration: none;
+  color: inherit;
+}
 .image-card {
   width: calc(33% - 1rem);
   margin: .5rem;
